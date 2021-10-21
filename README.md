@@ -1,4 +1,4 @@
-# wtf
+# Template
 
 ## Project setup
 ```
