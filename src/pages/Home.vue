@@ -1,16 +1,13 @@
 <template>
   <p>Hi dev!</p>
-  <p v-if="id && id >= 0">product ID: {{ id }}</p>
+  <p>product productId: {{ productId }}</p>
+  <p>user userId: {{ userId }}</p>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
   name: "Home",
-  computed: {
-    id() {
-      return this.$route.params.id || false;
-    },
-  },
+  props: ["productId", "userId"],
 });
 </script>
