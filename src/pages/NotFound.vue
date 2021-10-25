@@ -9,4 +9,3 @@ export default defineComponent({
   name: "PageNotFound",
 });
 </script>
-

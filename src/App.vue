@@ -1,6 +1,6 @@
 <template>
-  <Header></Header>
-  <router-view></router-view>
+  <Header />
+  <router-view />
 </template>
 
 <script lang="ts">
@@ -12,7 +12,6 @@ export default defineComponent({
   components: { Header },
 });
 </script>
-
 
 <style>
 #app {
