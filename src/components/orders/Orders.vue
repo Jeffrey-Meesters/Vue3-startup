@@ -1,5 +1,5 @@
 <template>
-  <h2>Your order</h2>
+  <h2>Your orders</h2>
 </template>
 
 <script lang="ts">
