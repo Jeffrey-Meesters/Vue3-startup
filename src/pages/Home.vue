@@ -1,7 +1,7 @@
 <template>
   <p>Hi dev!</p>
-  <p>product productId: {{ productId }}</p>
-  <p>user userId: {{ userId }}</p>
+  <p v-if="productId">product productId: {{ productId }}</p>
+  <p v-if="userId">user userId: {{ userId }}</p>
   <router-view name="orders" />
 </template>
 
