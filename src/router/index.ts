@@ -24,12 +24,17 @@ const routes: Array<RouteRecordRaw> = [
     name: "user-account",
     component: () => import("@/pages/Home.vue"),
     props: true,
-  },
-  {
-    path: "/account/:userId/orders",
-    name: "user-orders",
-    component: () => import("@/pages/Home.vue"),
-    props: true,
+    children: [
+      {
+        path: "/account/:userId/orders",
+        name: "user-orders",
+        components: {
+          default: () => import("@/pages/Home.vue"),
+          orders: () => import("@/components/orders/Orders.vue")
+        },
+        props: true,
+      },
+    ]
   },
   {
     path: "/:pathMatch(.*)*",
