@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { computed, defineComponent } from "vue";
 
 export default defineComponent({
   name: "Home",
@@ -17,8 +17,8 @@ export default defineComponent({
     userId: { default: 0, type: Number },
   },
   setup(props) {
-    const userUID = ref(props.userId);
-    const productUID = ref(props.productId);
+    const userUID = computed(() => props.userId);
+    const productUID = computed(() => props.productId);
 
     return {
       userUID,

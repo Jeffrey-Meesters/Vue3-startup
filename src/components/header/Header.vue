@@ -38,6 +38,7 @@ export default defineComponent({
     applicationName.value = "Trying Vue 3 and Router 4";
     const randomRouteId = ref(0);
     randomRouteId.value = getRandomId(10);
+
     return {
       applicationName,
       randomRouteId,
