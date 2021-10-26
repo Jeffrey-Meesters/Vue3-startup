@@ -17,13 +17,17 @@ const routes: Array<RouteRecordRaw> = [
     name: "product",
     component: () => import("@/pages/Home.vue"),
     alias: "/product/:productId",
-    props: true,
+    props: route => ({
+      productId: Number(route.params.productId)
+    }),
   },
   {
     path: "/account/:userId",
     name: "user-account",
     component: () => import("@/pages/Home.vue"),
-    props: true,
+    props: route => ({
+      userId: Number(route.params.userId)
+    }),
     children: [
       {
         path: "/account/:userId/orders",
@@ -32,7 +36,6 @@ const routes: Array<RouteRecordRaw> = [
           default: () => import("@/pages/Home.vue"),
           orders: () => import("@/components/orders/Orders.vue")
         },
-        props: true,
       },
     ]
   },

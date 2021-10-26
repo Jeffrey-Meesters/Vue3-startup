@@ -10,15 +10,15 @@
           <router-link to="/products">products</router-link>
         </li>
         <li>
-          <router-link :to="`/products/${getRandomId()}`"
+          <router-link :to="`/products/${randomRouteId}`"
             >a product</router-link
           >
         </li>
         <li>
-          <router-link :to="`/account/${getRandomId()}`">Profile</router-link>
+          <router-link :to="`/account/${randomRouteId}`">Profile</router-link>
         </li>
         <li>
-          <router-link :to="`/account/${getRandomId()}/orders`"
+          <router-link :to="`/account/${randomRouteId}/orders`"
             >Orders</router-link
           >
         </li>
@@ -28,17 +28,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref, Ref } from "vue";
+import { getRandomId } from "@/repositories/commonRepository";
 
 export default defineComponent({
-  name: "Header",
-  data: () => ({
-    applicationName: "Trying Vue 3 and Router 4",
-  }),
-  methods: {
-    getRandomId() {
-      return Math.round(Math.random() * 11);
-    },
+  setup() {
+    const applicationName: Ref<string> = ref("");
+    // I know I can specify it above, just trying it out
+    applicationName.value = "Trying Vue 3 and Router 4";
+    const randomRouteId = ref(0);
+    randomRouteId.value = getRandomId(10);
+    return {
+      applicationName,
+      randomRouteId,
+    };
   },
 });
 </script>
