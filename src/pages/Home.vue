@@ -2,6 +2,7 @@
   <p>Hi dev!</p>
   <p v-if="productUID">product productId: {{ productUID }}</p>
   <p v-if="userUID">user userId: {{ userUID }}</p>
+  <router-view name="products" />
   <router-view name="orders" />
 </template>
 
