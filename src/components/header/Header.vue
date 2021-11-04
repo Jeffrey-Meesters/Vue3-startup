@@ -28,6 +28,8 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { getRandomId } from "@/repositories/commonRepository";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "@/services/index";
 
 export default defineComponent({
   setup() {
@@ -38,6 +40,21 @@ export default defineComponent({
       applicationName,
       randNumber,
     };
+  },
+
+  mounted() {
+    this.fetchSomeData();
+  },
+  methods: {
+    async fetchSomeData() {
+      // get collection of users
+      const querySnapshot = await getDocs(collection(db, "users"));
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+        // currently logs: 6dg634VagAYwpmvtsIWT  =>  {name: 'kees'}
+      });
+    },
   },
 });
 </script>
